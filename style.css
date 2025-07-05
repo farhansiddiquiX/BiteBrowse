@@ -7,16 +7,21 @@
 body{
     background-color:rgb(16, 16, 60);
     color:white;
-
+    padding-top: 120px;
 }
 header nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background-color: rebeccapurple;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1;
+    z-index: 1000;
 }
+
 
 header nav h1{
     font-size: 26px;
@@ -288,21 +293,45 @@ header nav {
 }
 
 /* ========== Existing mobile @600px ===== */
+/* =============================
+   Your existing styles...
+   (no changes here)
+   ============================= */
+
 @media screen and (max-width: 600px) {
-  /* You've already set nav stacking; just ensure grid is single column */
   .recipe-container {
     grid-template-columns: 1fr;
     width: 100%;
     padding: 10px;
     grid-gap: 15px;
+
+    /* center cards on mobile */
+    place-items: center;
+    align-items: center;
   }
+
   .recipe {
     max-width: 100%;
+
+    /* Replace your fixed height:
+       height: 550px;
+       with a min-height of about 450px (you can tweak this) */
     height: auto;
+    min-height: 450px;
+
+    display: flex;
+    flex-direction: column;
   }
+
   .recipe img {
     height: 200px;
   }
+
+  /* Push the button to the bottom of the card if content is short */
+  .recipe button {
+    margin-top: auto;
+  }
+
   .msg {
     font-size: 20px;
   }
