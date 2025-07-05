@@ -1,0 +1,314 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    background-color:rgb(16, 16, 60);
+    color:white;
+
+}
+header nav{
+    background-color: rebeccapurple;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+header nav h1{
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+header nav form{
+    display: flex;
+    justify-content: center;
+}
+form input[type="text"]{
+    flex-grow: 1;
+    margin-right: 10px;
+
+}
+form input[type="text"],button[type="submit"]{
+    border: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 10px;
+}
+form button[type="submit"]{
+    background-color:green;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+form button[type="submit"]:hover, .recipe button:hover{
+    background-color: rgb(103, 211, 103);
+}
+.recipe-container{
+    text-align: center;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-gap: 40px;
+    width: 80%;
+    margin: 10px auto;
+    padding:20px;
+    place-items: center;
+}
+
+.msg{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bolder;
+    margin:20px;
+}
+
+.recipe{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    color: rgb(74, 34, 34);
+    box-shadow: 0 5px 10px rgba(78, 73, 73, 0.1),-5px -5px 10px rgba(34, 34, 34, 0.5);
+    cursor: pointer;
+    max-width: 350px;
+    height: 550px;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.recipe:hover{
+    transform: scale(1.05);
+}
+
+.recipe img{
+    height: 350px;
+    border-radius: 10px 10px 0 0;
+}
+.recipe h3{
+    font-size: 24px;
+}
+.recipe p{
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+}
+.recipe button{
+    font-weight: bold;
+    border: none;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    max-width: 150px;
+    border-radius: 15px;
+    text-align: center;
+    margin:18px auto;
+    cursor: pointer;
+}
+.recipe-detail{
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.recipe-detail span{
+    margin: 300px;
+}
+.recipe-details{
+    display: none;
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(16, 16, 97);
+    -webkit-transform: translate(-50%, -50%);
+    border-radius: 15px;
+    width: 40%;
+    height: 60%;
+    font-size: 20px;
+    transition: all 0.5s ease-in-out;
+    overflow-y:scroll ;
+}
+
+.recipe-details::-webkit-scrollbar{
+    width: 10px;
+}
+
+.recipe-details::-webkit-scrollbar-thumb{
+    background-color: blanchedalmond;
+    border-radius: 10px;
+    --webkit-border-radius:10px;
+}
+
+.recipe-details-content{
+    padding:30px;
+}
+
+.recipeName{
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+
+}
+.ingredientList li{
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.instructions p{
+    line-height: 30px;
+    white-space: pre-line;
+}
+.recipeName,
+.ingredientList,
+.instructions{
+    margin-bottom: 20px;
+}
+.recipe-closeBtn{
+    border: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: red;
+    color:white;
+    position: absolute;
+    top:20px;
+    right:20px;
+    width: 30px;
+    height: 30px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recipe-closeBtn:hover{
+    background-color: rgb(211, 129, 129);
+}
+
+body::-webkit-scrollbar{
+    width: 10px;
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: blanchedalmond;
+    border-radius: 10px;
+    --webkit-border-radius:10px;
+}
+
+body::-webkit-scrollbar-track{
+    background-color: grey;
+}
+header nav {
+  width: 100%;
+}
+
+
+@media screen and (max-width:600px) {
+    header nav{
+        flex-direction: column;
+    }
+    header nav form{
+        width: 80%;
+        margin-top: 20px;
+    }
+    header nav input{
+        width: 30px;
+    }
+}
+/* ========== Tablet & iPad (portrait & landscape) up to 1024px ========== */
+@media screen and (max-width: 1024px) {
+  /* Narrow the header nav padding & stack title/search */
+  header nav {
+    flex-direction: column;
+    padding: 15px;
+  }
+  header nav h1 {
+    margin-bottom: 15px;
+  }
+  header nav form {
+    width: 90%;
+  }
+
+  /* Recipe grid: two columns instead of auto-fit many */
+  .recipe-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 30px;
+    width: 90%;
+  }
+
+  /* Details modal: a bit wider for tablets */
+  .recipe-details {
+    width: 70%;
+    height: 70%;
+  }
+}
+
+/* ========== Small tablets & large phones up to 768px ========== */
+@media screen and (max-width: 768px) {
+  /* Further reduce padding and font-sizes */
+  header nav {
+    padding: 12px;
+  }
+  header nav h1 {
+    font-size: 22px;
+  }
+  .searchBox,
+  .searchBtn {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  /* Single column grid on narrower screens */
+  .recipe-container {
+    grid-template-columns: 1fr;
+    width: 95%;
+    grid-gap: 20px;
+  }
+
+  /* Recipe cards: reduce height */
+  .recipe {
+    max-width: 300px;
+    height: auto;
+    padding: 0.75rem;
+  }
+  .recipe img {
+    height: 250px;
+  }
+
+  /* Details modal: almost full screen */
+  .recipe-details {
+    width: 90%;
+    height: 80%;
+    font-size: 18px;
+  }
+}
+
+/* ========== Existing mobile @600px ===== */
+@media screen and (max-width: 600px) {
+  /* You've already set nav stacking; just ensure grid is single column */
+  .recipe-container {
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 10px;
+    grid-gap: 15px;
+  }
+  .recipe {
+    max-width: 100%;
+    height: auto;
+  }
+  .recipe img {
+    height: 200px;
+  }
+  .msg {
+    font-size: 20px;
+  }
+  .recipe-details {
+    width: 95%;
+    height: 85%;
+    font-size: 16px;
+  }
+}

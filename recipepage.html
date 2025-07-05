@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recipe Details</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+        /* replace your inline <style> block with something like this in style.css */
+
+.recipe-detail {
+  padding: 20px;
+}
+
+/* common styles for both ingredients & instructions */
+.recipe-detail .ingre,
+.recipe-detail .instructions {
+  max-width: 800px;      /* don’t stretch wider than this */
+  margin: 30px auto;     /* vertical 30px, horizontal auto-centers */
+  padding: 25px;         /* comfortable padding on all sides */
+  border: 2px solid white;
+  border-radius: 20px;
+  line-height: 1.6;
+  white-space: pre-line;
+  font-size: 1rem;       /* ~16px */
+}
+
+/* tweak heading/iframe margins */
+.recipe-detail h1,
+.recipe-detail h2,
+.recipe-detail h3,
+.recipe-detail iframe {
+  margin-top: 1.5em;
+}
+
+/* make the video iframe responsive */
+.recipe-detail iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+.recipe-detail img{
+    width: 70%;
+}
+
+/* media queries for very small devices */
+@media screen and (max-width: 480px) {
+  .recipe-detail .ingre,
+  .recipe-detail .instructions {
+    padding: 25px;
+    font-size: 0.9rem;
+  }
+}
+
+    </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Recipe App</h1>
+      <form>
+        <input
+          type="text"
+          name="search"
+          placeholder="Search..."
+          class="searchBox"
+        />
+        <button type="submit" class="searchBtn">Search</button>
+      </form>
+    </nav>
+  </header>
+  <div class="recipe-detail"></div>
+  <script src="script.js"></script>
+</body>
+</html>
