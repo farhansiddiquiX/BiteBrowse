@@ -79,8 +79,10 @@ form button[type="submit"]:hover, .recipe button:hover{
     color: rgb(74, 34, 34);
     box-shadow: 0 5px 10px rgba(78, 73, 73, 0.1),-5px -5px 10px rgba(34, 34, 34, 0.5);
     cursor: pointer;
-    max-width: 350px;
-    height: 550px;
+    width: 350px;
+    height: 400px;      
+    display: flex;
+    flex-direction: column;
     border-radius: 10px;
     padding-bottom: 10px;
     transition: transform 0.3s ease-in-out;
@@ -90,10 +92,13 @@ form button[type="submit"]:hover, .recipe button:hover{
     transform: scale(1.05);
 }
 
-.recipe img{
-    height: 350px;
+.recipe img {
+    width: 100%;
+    height: 250px;         
+    object-fit: cover;     
     border-radius: 10px 10px 0 0;
 }
+
 .recipe h3{
     font-size: 24px;
 }
@@ -102,7 +107,7 @@ form button[type="submit"]:hover, .recipe button:hover{
     color: black;
     font-weight: bold;
 }
-.recipe button{
+.recipe button {
     font-weight: bold;
     border: none;
     background-color: green;
@@ -111,9 +116,11 @@ form button[type="submit"]:hover, .recipe button:hover{
     max-width: 150px;
     border-radius: 15px;
     text-align: center;
-    margin:18px auto;
+    margin: 18px auto;
     cursor: pointer;
+    margin-top: 1rem;    
 }
+
 .recipe-detail{
     max-width: 100vw;
     display: flex;
@@ -224,9 +231,7 @@ header nav {
         width: 30px;
     }
 }
-/* ========== Tablet & iPad (portrait & landscape) up to 1024px ========== */
 @media screen and (max-width: 1024px) {
-  /* Narrow the header nav padding & stack title/search */
   header nav {
     flex-direction: column;
     padding: 15px;
@@ -237,24 +242,9 @@ header nav {
   header nav form {
     width: 90%;
   }
-
-  /* Recipe grid: two columns instead of auto-fit many */
-  .recipe-container {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-gap: 30px;
-    width: 90%;
-  }
-
-  /* Details modal: a bit wider for tablets */
-  .recipe-details {
-    width: 70%;
-    height: 70%;
-  }
 }
 
-/* ========== Small tablets & large phones up to 768px ========== */
 @media screen and (max-width: 768px) {
-  /* Further reduce padding and font-sizes */
   header nav {
     padding: 12px;
   }
@@ -267,24 +257,16 @@ header nav {
     padding: 8px;
   }
 
-  /* Single column grid on narrower screens */
   .recipe-container {
     grid-template-columns: 1fr;
     width: 95%;
     grid-gap: 20px;
   }
 
-  /* Recipe cards: reduce height */
-  .recipe {
-    max-width: 300px;
-    height: auto;
-    padding: 0.75rem;
-  }
   .recipe img {
     height: 250px;
   }
 
-  /* Details modal: almost full screen */
   .recipe-details {
     width: 90%;
     height: 80%;
@@ -292,11 +274,6 @@ header nav {
   }
 }
 
-/* ========== Existing mobile @600px ===== */
-/* =============================
-   Your existing styles...
-   (no changes here)
-   ============================= */
 
 @media screen and (max-width: 600px) {
   .recipe-container {
@@ -304,32 +281,12 @@ header nav {
     width: 100%;
     padding: 10px;
     grid-gap: 15px;
-
-    /* center cards on mobile */
     place-items: center;
     align-items: center;
   }
 
-  .recipe {
-    max-width: 100%;
-
-    /* Replace your fixed height:
-       height: 550px;
-       with a min-height of about 450px (you can tweak this) */
-    height: auto;
-    min-height: 450px;
-
-    display: flex;
-    flex-direction: column;
-  }
-
-  .recipe img {
-    height: 200px;
-  }
-
-  /* Push the button to the bottom of the card if content is short */
   .recipe button {
-    margin-top: auto;
+    margin-top: 1rem;
   }
 
   .msg {
@@ -339,5 +296,10 @@ header nav {
     width: 95%;
     height: 85%;
     font-size: 16px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .recipe{
+    width: 250px;
   }
 }
