@@ -1,10 +1,6 @@
-// script.js
-// ===================
-// Helper & State
-// ===================
-let allMeals = [];          // holds the full search result
-let currentOffset = 0;      // how many we’ve rendered so far
-const PAGE_SIZE = 10;       // show 10 at a time
+let allMeals = [];
+let currentOffset = 0;
+const PAGE_SIZE = 10;
 
 async function fetchRecipes(searchInput) {
   const recipeCon = document.querySelector(".recipe-container");
@@ -23,10 +19,9 @@ async function fetchRecipes(searchInput) {
       return;
     }
 
-    // store the full set & reset pagination
     allMeals = meals;
     currentOffset = 0;
-    recipeCon.innerHTML = "";    // clear before first page
+    recipeCon.innerHTML = "";
 
     renderNextPage();
   } catch (err) {
@@ -39,7 +34,6 @@ function renderNextPage() {
   const recipeCon = document.querySelector(".recipe-container");
   const loadBtn   = document.getElementById("loadMore");
 
-  // slice out the next PAGE_SIZE items
   const nextBatch = allMeals.slice(currentOffset, currentOffset + PAGE_SIZE);
   nextBatch.forEach((meal) => {
     const div = document.createElement("div");
@@ -61,7 +55,6 @@ function renderNextPage() {
 
   currentOffset += nextBatch.length;
 
-  // show or hide the Load More button
   if (currentOffset < allMeals.length) {
     loadBtn.style.display = "block";
   } else {
@@ -69,7 +62,6 @@ function renderNextPage() {
   }
 }
 
-// build ingredients list (used by both pages)
 function fetchIngredients(meal) {
   let list = "";
   for (let i = 1; i <= 20; i++) {
@@ -81,7 +73,6 @@ function fetchIngredients(meal) {
   return list;
 }
 
-// fetch recipe by ID (recipepage.html)
 async function fetchRecipeById(id) {
   const container = document.querySelector(".recipe-detail");
   container.innerHTML = "<h2>Loading Recipe…</h2>";
@@ -116,11 +107,8 @@ async function fetchRecipeById(id) {
   }
 }
 
-// ===================
-// DOM Ready
-// ===================
 document.addEventListener("DOMContentLoaded", () => {
-  // wire up search
+
   const form = document.querySelector("form");
   if (form) {
     form.addEventListener("submit", (e) => {
@@ -131,13 +119,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // load‐more button
   const loadBtn = document.getElementById("loadMore");
   if (loadBtn) {
     loadBtn.addEventListener("click", renderNextPage);
   }
 
-  // index.html logic
   if (document.querySelector(".recipe-container")) {
     const params = new URLSearchParams(window.location.search);
     const q = params.get("search") || "";
@@ -145,7 +131,6 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchRecipes(q);
   }
 
-  // recipepage.html logic
   if (document.querySelector(".recipe-detail")) {
     const id = new URLSearchParams(window.location.search).get("id");
     if (id) fetchRecipeById(id);

@@ -5,26 +5,23 @@
   <title>Recipe Details</title>
   <link rel="stylesheet" href="style.css"/>
   <style>
-        /* replace your inline <style> block with something like this in style.css */
 
 .recipe-detail {
   padding: 20px;
 }
 
-/* common styles for both ingredients & instructions */
 .recipe-detail .ingre,
 .recipe-detail .instructions {
-  max-width: 800px;      /* don’t stretch wider than this */
-  margin: 30px auto;     /* vertical 30px, horizontal auto-centers */
-  padding: 25px;         /* comfortable padding on all sides */
+  max-width: 800px;
+  margin: 30px auto; 
+  padding: 25px;       
   border: 2px solid white;
   border-radius: 20px;
   line-height: 1.6;
   white-space: pre-line;
-  font-size: 1rem;       /* ~16px */
+  font-size: 1rem;      
 }
 
-/* tweak heading/iframe margins */
 .recipe-detail h1,
 .recipe-detail h2,
 .recipe-detail h3,
@@ -32,7 +29,6 @@
   margin-top: 1.5em;
 }
 
-/* make the video iframe responsive */
 .recipe-detail iframe {
   width: 100%;
   height: auto;
@@ -42,7 +38,6 @@
     width: 70%;
 }
 
-/* media queries for very small devices */
 @media screen and (max-width: 480px) {
   .recipe-detail .ingre,
   .recipe-detail .instructions {
